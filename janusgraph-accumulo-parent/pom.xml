@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.janusgraph</groupId>
+        <artifactId>janusgraph</artifactId>
+        <version>0.2.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <artifactId>janusgraph-accumulo-parent</artifactId>
+    <packaging>pom</packaging>
+    <name>JanusGraph-Accumulo: Parent Module</name>
+    <url>http://janusgraph.org</url>
+
+    <modules>
+        <module>janusgraph-accumulo-core</module>
+        <module>janusgraph-accumulo-iterator</module>
+    </modules>
+
+
+    <properties>
+        <!--<janusgraph.accumulo.mvn.opts>-Dhadoop.version=${hadoop.version} -Dhadoop.profile=${hadoop.profile} ${janusgraph.hbase.mvn.opts.extra}</janusgraph.accumulo.mvn.opts>-->
+        <janusgraph.accumulo.mvn.opts.extra />
+        <default.test.jvm.opts>-Xms256m -Xmx1280m -XX:+HeapDumpOnOutOfMemoryError -ea ${test.extra.jvm.opts}</default.test.jvm.opts>
+        <mem.jvm.opts>-Xms256m -Xmx768m -ea -XX:+HeapDumpOnOutOfMemoryError ${test.extra.jvm.opts}</mem.jvm.opts>
+        <top.level.basedir>${project.parent.basedir}</top.level.basedir>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.janusgraph</groupId>
+            <artifactId>janusgraph-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.janusgraph</groupId>
+            <artifactId>janusgraph-test</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.janusgraph</groupId>
+            <artifactId>janusgraph-es</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+    
+</project>
